@@ -30,13 +30,12 @@ six.addEventListener('click',handleButtonClick);
 seven.addEventListener('click',handleButtonClick);
 eight.addEventListener('click',handleButtonClick);
 nine.addEventListener('click',handleButtonClick);
-point.addEventListener('click',handleButtonClick);
-equal.addEventListener('click',handleButtonClick);
-add.addEventListener('click',handleButtonClick);
-minus.addEventListener('click',handleButtonClick);
-multiply.addEventListener('click',handleButtonClick);
-divide.addEventListener('click',handleButtonClick);
-power.addEventListener('click',handleButtonClick);
+equal.addEventListener('click',handleEqual);
+add.addEventListener('click',handleOp);
+minus.addEventListener('click',handleOp);
+multiply.addEventListener('click',handleOp);
+divide.addEventListener('click',handleOp);
+power.addEventListener('click',handleOp);
 del.addEventListener('click',delLastInput);
 ac.addEventListener('click',resetCalc);
 
@@ -74,5 +73,36 @@ function changeBg(event){
         switchTheme.style.color='white';
         numpad.style.color='white';
         numpad.style.backgroundColor='black';
+    }
+}
+
+let currValue, previousValue, result,currOp;
+function handleOp(event){
+    currOp = event.target.innerText;
+    previousValue = Number(numpad.textContent);
+    numpad.textContent = '';
+}
+function handleEqual(event){
+    currValue = Number(numpad.textContent);
+   let result = Number(calculate(currOp,previousValue,currValue));
+   numpad.textContent = result;
+}
+function calculate(currOp,a,b){
+    switch(currOp){
+        case '+':
+            return a+b;
+            break;
+        case '-':
+            return a-b;
+            break;
+        case 'x':
+            return a*b;
+            break;
+        case '/':
+            return a/b;
+            break;
+        case '^':
+            return a**b;
+            break;
     }
 }
