@@ -47,7 +47,7 @@ body{
     align-items: center; 
     margin: 5px;
 }
-#z{
+#zero{
     width: 175px;
     height: 88px;
     border-radius: 44px;
@@ -60,4 +60,14 @@ body{
     text-align: end;
     padding: 10px;
     cursor: pointer;
+}
+#numpad{
+    display: flex;
+    justify-content: end;
+    align-items:end;
+    font-size: 50px;
+    color: white;
+    background-color: black;
+    
+
 }
